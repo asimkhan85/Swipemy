@@ -1,20 +1,24 @@
 body {
-    margin: 0;
-    padding: 0;
-    background: #000;
+  margin: 0;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .viewer {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+  width: 100%;
+  max-width: 600px;   /* Optional – photo bohot choti na lage */
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .viewer img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;  /* Yeh line magic hai */
+  width: 100%;
+  height: auto;
+  object-fit: contain;  /* IMPORTANT – gallery jesa fit */
+  max-height: 100vh;     /* Screen se bahar na jaye */
 }
