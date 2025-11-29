@@ -21,11 +21,13 @@ imgElement.addEventListener("touchstart", (e) => {
 imgElement.addEventListener("touchend", (e) => {
     let endX = e.changedTouches[0].clientX;
 
-    if (endX < startX - 50) {
+    if (startX - endX > 50) {
+        // Next image
         currentIndex = (currentIndex + 1) % images.length;
-    } else if (endX > startX + 50) {
+        imgElement.src = images[currentIndex];
+    } else if (endX - startX > 50) {
+        // Previous image
         currentIndex = (currentIndex - 1 + images.length) % images.length;
+        imgElement.src = images[currentIndex];
     }
-
-    imgElement.src = images[currentIndex];
 });
