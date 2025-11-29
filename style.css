@@ -1,15 +1,23 @@
 body {
-    margin: 0;
-    padding: 0;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: black;
+  height: 100vh;
+  overflow: hidden;
 }
 
-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* FULL FIT */
+#viewer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#viewer img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* ---- MOST IMPORTANT ---- */
+  user-select: none;
+  -webkit-user-drag: none;
 }
