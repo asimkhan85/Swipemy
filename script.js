@@ -1,33 +1,21 @@
-const images = [
-    "1.png",
-    "2.png",
-    "3.png",
-    "4.png",
-    "5.png",
-    "6.png"
-];
+body {
+  margin: 0;
+  background: #000;
+}
 
-let currentIndex = 0;
-const imgElement = document.getElementById("productImage");
+.gallery-container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
 
-imgElement.src = images[currentIndex];
-
-let startX = 0;
-
-imgElement.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-});
-
-imgElement.addEventListener("touchend", (e) => {
-    let endX = e.changedTouches[0].clientX;
-
-    if (startX - endX > 50) {
-        // Next image
-        currentIndex = (currentIndex + 1) % images.length;
-        imgElement.src = images[currentIndex];
-    } else if (endX - startX > 50) {
-        // Previous image
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        imgElement.src = images[currentIndex];
-    }
-});
+.gallery-container img {
+  width: 95vw;        /* Screen ke hisaab se perfect */
+  height: auto;       /* Perfect aspect ratio */
+  object-fit: contain;
+  touch-action: pan-y;
+}
