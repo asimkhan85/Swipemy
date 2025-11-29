@@ -1,26 +1,31 @@
-let current = 1;
-let total = 6;  // jitni photos hain
+let images = [
+    "images/image1.png",
+    "images/image2.png",
+    "images/image3.png",
+    "images/image4.png",
+    "images/image5.png",
+    "images/image6.png"
+];
 
-const img = document.getElementById("galleryImage");
+let current = 0;
+let img = document.getElementById("productImage");
+
 let startX = 0;
 
-document.addEventListener("touchstart", (e) => {
-  startX = e.touches[0].clientX;
+document.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
 });
 
-document.addEventListener("touchend", (e) => {
-  let endX = e.changedTouches[0].clientX;
+document.addEventListener("touchend", e => {
+    let endX = e.changedTouches[0].clientX;
 
-  if (startX - endX > 40) {
-    // NEXT
-    current++;
-    if (current > total) current = total;
-  } 
-  else if (endX - startX > 40) {
-    // PREVIOUS
-    current--;
-    if (current < 1) current = 1;
-  }
+    if (endX < startX - 50) {
+        current = (current + 1) % images.length; // next
+    }
 
-  img.src = `images/${current}.png`;
+    if (endX > startX + 50) {
+        current = (current - 1 + images.length) % images.length; // prev
+    }
+
+    img.src = images[current];
 });
