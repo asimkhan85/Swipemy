@@ -1,21 +1,26 @@
-body {
-  margin: 0;
-  background: #000;
-}
+let current = 1;
+let total = 6;  // jitni photos hain
 
-.gallery-container {
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #000;
-}
+const img = document.getElementById("galleryImage");
+let startX = 0;
 
-.gallery-container img {
-  width: 95vw;        /* Screen ke hisaab se perfect */
-  height: auto;       /* Perfect aspect ratio */
-  object-fit: contain;
-  touch-action: pan-y;
-}
+document.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+});
+
+document.addEventListener("touchend", (e) => {
+  let endX = e.changedTouches[0].clientX;
+
+  if (startX - endX > 40) {
+    // NEXT
+    current++;
+    if (current > total) current = total;
+  } 
+  else if (endX - startX > 40) {
+    // PREVIOUS
+    current--;
+    if (current < 1) current = 1;
+  }
+
+  img.src = `images/${current}.png`;
+});
