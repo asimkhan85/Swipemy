@@ -23,7 +23,7 @@ body {
 
 .swiper-slide img {
     width: auto;
-    height: 75vh;  /* <- PERFECT GALLERY SIZE (best for mobile) */
+    height: 80vh;  /* <- PERFECT GALLERY SIZE (best for mobile) */
     object-fit: contain;
     border-radius: 2px;
 }
