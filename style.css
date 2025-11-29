@@ -1,9 +1,29 @@
-#product-image {
-    width: auto;
+body {
+    margin: 0;
+    padding: 0;
+    background: #000; /* gallery jaisa black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.swiper {
+    width: 100%;
     height: auto;
-    max-width: 90vw;   /* screen width ka 90% */
-    max-height: 70vh;  /* screen height ka 70% */
+    display: flex;
+    justify-content: center;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    width: auto;
+    height: 75vh;  /* <- PERFECT GALLERY SIZE (best for mobile) */
     object-fit: contain;
-    display: block;
-    margin: 0 auto;
+    border-radius: 2px;
 }
