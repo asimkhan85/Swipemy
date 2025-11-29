@@ -1,6 +1,20 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+}
+
+.viewer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
 .viewer img {
-  width: 100%;
-  height: 100vh;     /* <-- photo aur badi ho jayegi, full screen */
-  object-fit: cover; /* <-- gallery jaisa full fit */
-  object-position: center;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;  /* Yeh line magic hai */
 }
